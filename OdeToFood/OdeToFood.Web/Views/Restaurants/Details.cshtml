@@ -1,0 +1,54 @@
+﻿@model OdeToFood.Domain.ViewModels.RestaurantDetailsViewModel
+
+@{ ViewBag.Title = "Details"; }
+
+<div class="row">
+    <h1>@Model.Restaurant.RestaurantName</h1>
+</div>
+
+<div class="row homeDivHeader text-center bg-primary">
+    <h1 class="text-white">Promoted items:</h1>
+</div>
+<div class="row homeDivContainer">
+    @foreach (var item in Model.MenuItems)
+    {
+        if (item.isPromoted == true)
+        {
+<div class="card" style="width: 14rem;height:20rem; margin:auto;">
+    @if (item.ImagePath != null)
+    {
+<a href="~/MenuItems/Details/@item.MenuItemId"><img class="card-img-top" src="@Url.Content(item.ImagePath)" alt="Card image cap"></a> }
+                    else
+                    {
+<a href="~/MenuItems/Details/@item.MenuItemId"><img class="card-img-top" src="~/Images/NoPhoto.jpg" alt="Card image cap"></a>}
+    <div class="card-body text-center">
+        <h5 class="card-text"><a href="~/MenuItems/Details/@item.MenuItemId">@item.MenuItemName</a></h5>
+    </div>
+</div>}
+            }
+</div>
+
+<br />
+<br />
+
+<div class="row homeDivHeader text-center bg-primary">
+    <h1 class="text-white">Other items:</h1>
+</div>
+<div class="row homeDivContainer">
+    @foreach (var item in Model.MenuItems)
+    {
+        if (!item.isPromoted)
+        {
+<div class="card" style="width: 14rem;height:20rem; margin:auto;">
+    @if (item.ImagePath != null)
+    {
+<a href="~/MenuItems/Details/@item.MenuItemId"><img class="card-img-top" src="@Url.Content(item.ImagePath)" alt="Card image cap"></a> }
+                    else
+                    {
+<a href="~/MenuItems/Details/@item.MenuItemId"><img class="card-img-top" src="~/Images/NoPhoto.jpg" alt="Card image cap"></a>}
+    <div class="card-body text-center">
+        <h5 class="card-text"><a href="~/MenuItems/Details/@item.MenuItemId">@item.MenuItemName</a></h5>
+    </div>
+</div>}
+}
+</div>

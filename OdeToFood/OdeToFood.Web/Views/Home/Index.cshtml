@@ -1,0 +1,105 @@
+﻿@model OdeToFood.Domain.ViewModels.HomeViewModel
+@{ ViewBag.Title = "Home Page"; }
+
+
+
+
+
+<div class="row homeDivHeader text-center bg-primary">
+    <h1 class="text-white">Cuisines</h1>
+</div>
+
+<div class="row homeDivContainer">
+    @foreach (var item in Model.Cuisines)
+    {
+<div class="card" style="width: 14rem;height:20rem; margin:auto;">
+    @if (item.ImagePath != null)
+    {
+<a href="~/Cuisines/Details/@item.CuisineId"><img class="card-img-top" src="@Url.Content(item.ImagePath)" alt="Cuisine Image"></a> }
+                else
+                {
+<a href="~/Cuisines/Details/@item.CuisineId"><img class="card-img-top" src="~/Images/NoPhoto.jpg" alt="Cuisine Image"></a>}
+    <div class="card-body text-center">
+        <h5 class="card-text"><a href="~/Cuisines/Details/@item.CuisineId">@item.CuisineName</a></h5>
+    </div>
+</div>}
+</div>
+
+<br />
+
+<div class="row homeDivHeader bg-primary">
+    <h1 class="text-white">Promoted Restaurants</h1>
+</div>
+
+<div class="row homeDivContainer">
+    @if (Model.MenuItems.Where(r => r.isPromoted).Count() > 0)
+    {
+        foreach (var item in Model.Restaurants)
+        {
+            if (item.isPromoted == true)
+            {
+<div class="card" style="width: 14rem;height:20rem;margin:auto;">
+    @if (item.ImagePath != null)
+    {
+<a href="~/Restaurants/Details/@item.RestaurantId"><img class="card-img-top" src="@Url.Content(item.ImagePath)" alt="Restaurant Image"></a> }
+                        else
+                        {
+<a href="~/Restaurants/Details/@item.RestaurantId"><img class="card-img-top" src="~/Images/NoPhoto.jpg" alt="Restaurant Image"></a>}
+    <div class="card-body text-center">
+        <h5 class="card-text"><a href="~/Restaurants/Details/@item.RestaurantId">@item.RestaurantName</a></h5>
+        <small>@item.Cuisine.CuisineName</small>
+    </div>
+</div> }
+                }
+            }
+            else
+            {
+<br />
+                <h5 style="margin:auto;">No Promoted Restaurants added yet :(</h5>
+                                <br />}
+</div>
+<br />
+<div class="row">
+    <a href="~/Restaurants/Index" class="btn btn-primary" style="margin:auto;">Go to all Restaurants</a>
+</div>
+
+<br />
+
+<div class="row homeDivHeader text-center bg-primary">
+    <h1 class="text-white">Promoted Menu Items</h1>
+</div>
+
+<div class="row homeDivContainer">
+    @if (Model.MenuItems.Where(m => m.isPromoted).Count() > 0)
+    {
+        foreach (var item in Model.MenuItems)
+        {
+            if (item.isPromoted == true)
+            {
+<div class="card" style="width: 14rem;height:20rem;margin:auto;">
+    @if (item.ImagePath != null)
+    {
+<a href="~/MenuItems/Details/@item.MenuItemId"><img class="card-img-top" src="@Url.Content(item.ImagePath)" alt="Card image cap"></a> }
+                        else
+                        {
+<a href="~/MenuItems/Details/@item.MenuItemId"><img class="card-img-top" src="~/Images/NoPhoto.jpg" alt="Menu Item Image"></a>}
+    <div class="card-body text-center">
+        <h5 class="card-text"><a href="~/MenuItems/Details/@item.MenuItemId">@item.MenuItemName</a></h5>
+        <small>@item.Restaurant.RestaurantName</small>
+        <br />
+        <small>@item.Cuisine.CuisineName</small>
+    </div>
+</div> }
+                }
+            }
+            else
+            {
+<br />
+                <h5 style="margin:auto;">No Promoted Menu Items added yet :(</h5>
+                                <br />}
+
+</div>
+<br />
+<div class="row">
+    <a href="~/MenuItems/Index/" class="btn btn-primary" style="margin:auto;">Go to all Menu Items</a>
+</div>

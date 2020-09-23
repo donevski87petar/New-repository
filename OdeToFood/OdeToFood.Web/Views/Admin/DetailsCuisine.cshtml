@@ -1,0 +1,34 @@
+﻿@model OdeToFood.Domain.Models.Cuisine
+
+@{
+    ViewBag.Title = "DetailsCuisine";
+}
+
+    <h1 class="text-center">@Html.DisplayFor(modelItem => Model.CuisineName)</h1>
+
+    <h3 class="text-center">Cuisine Details</h3>
+
+    <br />
+
+    <div class="row">
+        <div style="margin:auto;">
+
+            @if (Model.ImagePath != null)
+            {
+                <img style="width:400px;" src="@Url.Content(Model.ImagePath)" alt="Cuisine logo">
+            }
+            else
+            {
+                <img style="width:400px;" src="~/Images/NoPhoto.jpg" alt="Cuisine logo">
+            }
+
+            <br />
+
+            <div class="text-center">
+                @Html.ActionLink("Edit Cuisine", "EditCuisine", new { id = Model.CuisineId }) |
+                @Html.ActionLink("Back to List", "IndexCuisine")
+            </div>
+
+        </div>
+    </div>
+

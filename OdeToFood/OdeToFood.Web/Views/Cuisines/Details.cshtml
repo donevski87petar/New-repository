@@ -1,0 +1,23 @@
+﻿@model OdeToFood.Domain.Models.Cuisine
+
+@{ ViewBag.Title = "Details"; }
+
+<div class="row homeDivHeader text-center bg-primary">
+    <h1 class="text-white">@Model.CuisineName cuisine restaurants </h1>
+</div>
+<div class="row homeDivContainer">
+    @foreach (var item in Model.Restaurants)
+    {
+<div class="card" style="width: 14rem;height:20rem; margin:auto;">
+    @if (item.ImagePath != null)
+    {
+<a href="~/Restaurants/Details/@item.RestaurantId"><img class="card-img-top" src="@Url.Content(item.ImagePath)" alt="Card image cap"></a> }
+                else
+                {
+<a href="~/Restaurants/Details/@item.RestaurantId"><img class="card-img-top" src="~/Images/NoPhoto.jpg" alt="Card image cap"></a>}
+    <div class="card-body text-center">
+        <h5 class="card-text"><a href="~/Restaurants/Details/@item.RestaurantId">@item.RestaurantName</a></h5>
+    </div>
+</div>}
+</div>
+

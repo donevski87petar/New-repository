@@ -1,0 +1,29 @@
+﻿@model IEnumerable<OdeToFood.Domain.Models.MenuItem>
+
+@{
+    ViewBag.Title = "Menu Items index";
+}
+
+
+<div class="row homeDivHeader bg-primary">
+    <h1 class="text-white">All Menu Items</h1>
+</div>
+<div class="row homeDivContainer">
+    @foreach (var item in Model)
+    {
+<div class="card" style="width: 14rem;height:20rem;margin:auto;">
+    @if (item.ImagePath != null)
+    {
+<a href="~/MenuItems/Details/@item.MenuItemId"><img class="card-img-top" src="@Url.Content(item.ImagePath)" alt="Menu Item Image"></a>
+    }
+                else
+                {
+<a href="~/MenuItems/Details/@item.RestaurantId"><img class="card-img-top" src="~/Images/NoPhoto.jpg" alt="Menu Item Image"></a>                }
+    <div class="card-body text-center">
+        <h5 class="card-text"><a href="~/MenuItems/Details/@item.MenuItemId">@item.MenuItemName</a></h5>
+        <p>Price : @Html.DisplayFor(model => item.Price)</p>
+        <small>Cuisine : @item.Cuisine.CuisineName</small>
+    </div>
+</div>}
+</div>
+

@@ -1,0 +1,44 @@
+﻿@model OdeToFood.Domain.Models.Cuisine
+
+@{
+    ViewBag.Title = "DeleteCuisine";
+}
+
+
+
+    <div class="text-center">
+        <h2 class="text-center">Delete Cuisine</h2>
+
+        <h3 class="text-center">Are you sure you want to delete this?</h3>
+
+        <br />
+
+        <div>
+
+            @if (Model.ImagePath != null)
+            {
+                <img style="width:400px;" src="@Url.Content(Model.ImagePath)" alt="Cuisine logo">
+            }
+            else
+            {
+                <img style="width:400px;" src="~/Images/NoPhoto.jpg" alt="Cuisine logo">
+            }
+
+            <br />
+
+            <div class="text-center">
+                @Html.ActionLink("Back to List", "IndexCuisine")
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Delete" class="btn btn-primary" />
+                    </div>
+                }
+
+            </div>
+
+        </div>
+    </div>

@@ -1,0 +1,34 @@
+﻿@model OdeToFood.Domain.Models.Root
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Food API</h1>
+
+
+
+@foreach (var item in @Model.hints)
+{
+<ul>
+    <li>
+        Category: @item.food.category
+    </li>
+    <li>
+        Category Label: @item.food.categoryLabel
+    </li>
+    <li>
+        Category: @item.food.uri
+    </li>
+    <li>
+        Nutritients: CHOCDF-(@item.food.nutrients.CHOCDF) ,ENERC_KCAL-@item.food.nutrients.ENERC_KCAL ,FAT-@item.food.nutrients.FAT 
+    </li>
+    <li>
+        Capacity: @item.measures.Capacity
+    </li>
+    <li>
+        Count: @item.measures.Count
+    </li>
+</ul>
+<br />
+}

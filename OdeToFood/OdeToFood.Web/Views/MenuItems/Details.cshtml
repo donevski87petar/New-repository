@@ -1,0 +1,32 @@
+﻿@model OdeToFood.Domain.Models.MenuItem
+
+@{ ViewBag.Title = "Details"; }
+
+<h1 class="text-center">@Model.MenuItemName</h1>
+
+<br />
+
+<div class="text-center">
+    @if (Model.ImagePath != null)
+    {
+        <img style="width:400px;" src="@Url.Content(Model.ImagePath)" alt=""> }
+    else
+    {
+    <img style="width:400px;" src="~/Images/NoPhoto.jpg" alt="Card image cap">
+    }
+</div>
+
+<br />
+
+
+<div class="text-center">
+    <ul class="list-group">
+        <li class="list-group-item bg-primary text-white">Item Info</li>
+        <li class="list-group-item">@Html.DisplayNameFor(model => model.Cuisine.CuisineName) : @Html.DisplayFor(model => model.Cuisine.CuisineName)</li>
+        <li class="list-group-item"> @Html.DisplayNameFor(model => model.Restaurant.RestaurantName) : @Html.DisplayFor(model => model.Restaurant.RestaurantName)</li>
+        <li class="list-group-item">@Html.DisplayNameFor(model => model.MenuItemName) : @Html.DisplayFor(model => model.MenuItemName)</li>
+        <li class="list-group-item"> @Html.DisplayNameFor(model => model.Price) :  @Html.DisplayFor(model => model.Price)</li>
+        <li class="list-group-item">@Html.ActionLink("Back to List", "Index")</li>
+    </ul>
+</div>
+
