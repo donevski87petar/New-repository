@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="text-center" id="contentDiv">
+    <h1 class="text-center">Meals Index</h1>
+
+    <br />
+
+    <input type="button" id='btn' value="Get Meals" class="btn btn-primary" />
+
+    <br /><br />
+
+</div>
+
+<br />
+
+
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#btn').click(function () {
+            $.ajax({
+                url: '/Meal/Meals',
+                type: 'GET',
+                dataType: 'json',
+                success: function (result) {
+                    $('#ul').empty();
+                    var json = JSON.parse(result);
+                    
+                    $.each(json, function (index, value) {
+                        $('#contentDiv').append('<ul class="list-group" id="ul"> </ul>')
+                        $('#ul').append('<li class="list-group-item active">' + 'Label:' + value.food.label + '</li>')
+                        $('#ul').append('<li class="list-group-item">' + 'Category:' + value.food.category + '</li>')
+                        $('#ul').append('<li class="list-group-item">' + 'Category label:' + value.food.categoryLabel + '</li>')
+                        $('#ul').append('<li class="list-group-item">' + 'Food contents label:' + value.food.foodContentsLabel + '</li>')
+                        $('#ul').append('<li class="list-group-item">' + 'Nutrients: ' + 'ENERC_KCAL ' + value.food.nutrients.ENERC_KCAL + 'FAT ' + value.food.nutrients.FAT + 'FIBTG ' + value.food.nutrients.FIBTG +'</li>')
+                        $('#ul').append('<li class="list-group-item">' + `<a href=${value.food.uri} target="_blank">Link to product</a>` + '</li>')
+                    });
+                },
+                error: function () {
+                    console.log("Error");
+                }
+            });
+        })
+
+        });
+</script>

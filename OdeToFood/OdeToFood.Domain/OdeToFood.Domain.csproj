@@ -49,6 +49,7 @@
     <Compile Include="Models\Food2.cs" />
     <Compile Include="Models\Hint.cs" />
     <Compile Include="Models\Links.cs" />
+    <Compile Include="Models\Meal.cs" />
     <Compile Include="Models\Measure.cs" />
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\Next.cs" />

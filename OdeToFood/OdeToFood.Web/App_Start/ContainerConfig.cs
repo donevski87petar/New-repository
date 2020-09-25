@@ -29,7 +29,7 @@ namespace OdeToFood.Web.App_Start
             builder.RegisterType<CuisineService>().As<ICuisineService>().InstancePerRequest();
             builder.RegisterType<RestaurantService>().As<IRestaurantService>().InstancePerRequest();
             builder.RegisterType<MenuItemService>().As<IMenuItemService>().InstancePerRequest();
-
+            builder.RegisterType<MealService>().As<IMealService>().InstancePerRequest();
 
             builder.RegisterType<ApplicationDbContext>().InstancePerRequest();
 

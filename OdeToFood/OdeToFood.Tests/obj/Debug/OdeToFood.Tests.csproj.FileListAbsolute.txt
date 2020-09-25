@@ -33,3 +33,5 @@ C:\Users\Petar\Projects\OdeToFood\OdeToFood.Tests\bin\Debug\System.Threading.Tas
 C:\Users\Petar\Projects\OdeToFood\OdeToFood.Tests\bin\Debug\Castle.Core.xml
 C:\Users\Petar\Projects\OdeToFood\OdeToFood.Tests\bin\Debug\NSubstitute.xml
 C:\Users\Petar\Projects\OdeToFood\OdeToFood.Tests\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Petar\Projects\OdeToFood\OdeToFood.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Petar\Projects\OdeToFood\OdeToFood.Tests\bin\Debug\Newtonsoft.Json.xml

@@ -228,6 +228,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\CuisineController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\ContainerConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -241,6 +242,7 @@
     <Compile Include="Controllers\FoodApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MealController.cs" />
     <Compile Include="Controllers\MenuItemsController.cs" />
     <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -432,6 +434,8 @@
     <Content Include="Views\Admin\DeleteMenuItem.cshtml" />
     <Content Include="Views\Admin\EditMenuItem.cshtml" />
     <Content Include="Views\FoodApi\Index.cshtml" />
+    <Content Include="Views\Meal\Meals.cshtml" />
+    <Content Include="Views\Meal\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

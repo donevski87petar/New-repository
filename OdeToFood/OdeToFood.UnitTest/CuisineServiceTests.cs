@@ -21,7 +21,7 @@ namespace OdeToFood.UnitTest
         }
 
         [Fact]
-        public async Task GetById_ShouldReturnCuisine()
+        public async Task GetById_ShouldReturnCuisine_WhenCuisineExists()
         {
             //AAA
             var cuisineId = 3;
@@ -33,11 +33,10 @@ namespace OdeToFood.UnitTest
             //Act
             var cuisineById = _cuisineService.GetCuisine(cuisineId);
 
-            //Assert
+            //Assert           //expected //actual
             Xunit.Assert.Equal(cuisineId, cuisine.CuisineId);
             Xunit.Assert.Equal(cuisineName, cuisine.CuisineName);
         }
-
 
 
     }
